@@ -1,0 +1,7 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="#16130f"/>
+  <!-- plinth: pedestal trapezoidal con línea ámbar arriba -->
+  <path d="M20 46 L44 46 L48 52 L16 52 Z" fill="#eae6df"/>
+  <rect x="26" y="20" width="12" height="24" fill="#eae6df"/>
+  <rect x="22" y="15" width="20" height="4" fill="#c96f2b"/>
+</svg>
