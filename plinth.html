@@ -66,12 +66,14 @@ a{color:inherit;text-decoration:none}
 .edit p{color:var(--mut);line-height:1.7;max-width:46ch}
 
 /* cta */
-.cta{background:var(--night);color:var(--bone);text-align:center;position:relative;overflow:hidden}
-.cta .in{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:clamp(80px,12vw,150px) clamp(20px,4vw,48px)}
-.cta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,9vw,120px);margin:14px 0 12px}
-.cta .glow{position:absolute;left:50%;bottom:-15%;width:720px;height:340px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(217,126,47,.4),transparent 68%);filter:blur(30px)}
-.cta .price{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 30px}
-.cta .btn{border-color:var(--bone);color:var(--bone)}.cta .btn:hover{background:var(--bone);color:var(--night)}
+.cta{background:var(--bone);color:var(--ink);text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(20,18,16,.16)}
+.cta .in{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:clamp(90px,13vw,170px) clamp(20px,4vw,48px)}
+.cta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,9.5vw,132px);line-height:.98;margin:18px 0 28px;color:var(--ink)}
+.cta-rule{display:flex;align-items:center;justify-content:center;gap:22px;margin:0 0 34px}
+.cta-rule span{height:1px;width:clamp(40px,10vw,96px);background:rgba(20,18,16,.28)}
+.cta .price{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0;white-space:nowrap}
+.cta .btn.solid{background:var(--ink);color:var(--bone);border-color:var(--ink)}.cta .btn.solid:hover{background:var(--amber);border-color:var(--amber);color:var(--night)}
+.cta-fine{margin:30px 0 0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
 
 /* footer */
 .foot{background:var(--night);color:var(--bone);border-top:1px solid rgba(234,230,223,.12)}
@@ -200,12 +202,12 @@ body.pilock{overflow:hidden}
 </section>
 
 <section class="cta" id="commission">
-  <div class="glow"></div>
   <div class="in">
-    <p class="hk" style="color:rgba(234,230,223,.55)">Editions close without notice</p>
+    <p class="hk">Editions close without notice</p>
     <h2 class="serif">Claim your number.</h2>
-    <p class="price">From $120,000 — deposit $20,000</p>
-    <a class="btn" href="#collection">Commission yours</a>
+    <div class="cta-rule"><span></span><p class="price">From $120,000 · deposit $20,000</p><span></span></div>
+    <a class="btn solid" href="#collection">Commission yours</a>
+    <p class="cta-fine">Numbered by hand · When an edition closes, the mold is destroyed</p>
   </div>
 </section>
 
