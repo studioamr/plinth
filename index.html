@@ -103,6 +103,19 @@ a{color:inherit;text-decoration:none}
 .waveband .wb-r{right:clamp(20px,4vw,48px);color:var(--amber)}
 @media(prefers-reduced-motion:reduce){.btrack{animation:none}}
 @media(max-width:640px){.blabel{writing-mode:horizontal-tb;font-size:10px;padding:0 14px}.bi{font-size:22px}}
+/* lookbook — objects at home */
+.lookbook{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px)}
+.lookgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.look{background:var(--bone);padding:14px;border:none;font-family:inherit;text-align:left;color:var(--ink);position:relative;transition:background .45s;text-decoration:none;display:block}
+.look:hover{background:var(--bone2)}
+.look img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.94);transition:filter .5s}
+.look:hover img{filter:saturate(1.06)}
+.look .lk-num{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--amber);text-transform:uppercase;display:block;margin:12px 0 4px}
+.look .lk-name{font-family:'Instrument Serif',serif;font-size:22px;line-height:1.1}
+.look .lk-cta{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;display:block;margin-top:6px}
+.look:hover .lk-cta{color:var(--amber)}
+.look::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
+.look:hover::after{width:100%}
 .cta{background:var(--bone);color:var(--ink);text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(20,18,16,.16)}
 .cta .in{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:clamp(90px,13vw,170px) clamp(20px,4vw,48px)}
 .cta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,9.5vw,132px);line-height:.98;margin:18px 0 28px;color:var(--ink)}
@@ -203,7 +216,7 @@ body.pilock{overflow:hidden}
 
 <header class="top"><div class="in">
   <a class="wm" href="plinth.html">PLINTH</a>
-  <nav><a href="#allinone">All-in-one</a><a href="#booths">Booths</a><a href="#speakers">Speakers</a><a href="#commission">Commission</a></nav>
+  <nav><a href="#allinone">All-in-one</a><a href="#booths">Booths</a><a href="#speakers">Speakers</a><a href="#lookbook">Lookbook</a><a href="#commission">Commission</a></nav>
 </div></header>
 
 <section class="hero">
@@ -267,6 +280,39 @@ body.pilock{overflow:hidden}
       <h2>Cast, not assembled</h2>
       <p>Every booth is cast as a single piece — smoked glass, quarried stone, hand-laid tile or stone-textured resin. No visible fasteners, no seams. Your rider bolts straight in, and the equipment disappears into the object. Each shell carries a signed plate and its number in the edition.</p>
     </div>
+  </div>
+</section>
+
+<section class="lookbook" id="lookbook">
+  <div class="sh">
+    <div><p class="hk">At home</p><h2>Lookbook 001</h2></div>
+    <p>Not equipment — furniture. Each object lives in the room like a sculpture: the centrepiece you play, then pour a drink beside.</p>
+  </div>
+  <div class="lookgrid">
+    <a class="look" href="producto.html?p=mirage&v=ink2">
+      <img src="plinth-look-1.png?v=look1" alt="MIRAGE in a warm living room" loading="lazy">
+      <span class="lk-num">Look 01 — The living room</span>
+      <span class="lk-name">MIRAGE</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=nova&v=ink2">
+      <img src="plinth-look-2.png?v=look1" alt="NOVA in a penthouse at dusk" loading="lazy">
+      <span class="lk-num">Look 02 — The penthouse</span>
+      <span class="lk-name">NOVA</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=ingot&v=ink2">
+      <img src="plinth-look-3.png?v=look1" alt="INGOT in a study" loading="lazy">
+      <span class="lk-num">Look 03 — The study</span>
+      <span class="lk-name">INGOT</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=arco&v=ink2">
+      <img src="plinth-look-4.png?v=look1" alt="ARCO in a gallery home" loading="lazy">
+      <span class="lk-num">Look 04 — The gallery house</span>
+      <span class="lk-name">ARCO</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
   </div>
 </section>
 
@@ -419,7 +465,7 @@ function plinthInquire(e){
 </script>
 <script>
   addEventListener('DOMContentLoaded', () => {
-    const targets = [...document.querySelectorAll('.mq, .sh, .card, .edit .row2 > *, .cta .in')];
+    const targets = [...document.querySelectorAll('.mq, .sh, .card, .look, .edit .row2 > *, .cta .in')];
     targets.forEach(el => {
       el.classList.add('reveal');
       // escalona por posición dentro de su fila (grid de 3)
