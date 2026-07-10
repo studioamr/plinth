@@ -136,6 +136,10 @@ a{color:inherit;text-decoration:none}
 .wb-play:hover{background:var(--ink)}
 .wb-play:hover svg path{fill:var(--bone)}
 .wb-play.on{border-color:var(--amber)}
+@keyframes wbA{from{transform:translateX(0)}to{transform:translateX(-1200px)}}
+@keyframes wbB{from{transform:translateX(1200px)}to{transform:translateX(0)}}
+#freqband.playing .wbtA{animation:wbA 26s linear infinite}
+#freqband.playing .wbtB{animation:wbB 26s linear infinite}
 @media(prefers-reduced-motion:reduce){.btrack{animation:none}}
 @media(max-width:640px){.blabel{writing-mode:horizontal-tb;font-size:10px;padding:0 14px}.bi{font-size:22px}}
 /* lookbook — objects at home (infinite scroll strip) */
@@ -558,17 +562,10 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
 /* ---- "Every room is a frequency": play -> bars scroll forever + minimal ambient techno (WebAudio, no files) ---- */
 (function(){
   var btn=document.getElementById('wbPlay'); if(!btn) return;
-  var svg=document.querySelector('#freqband .wbsvg');
+  var band=document.getElementById('freqband');
   var ICON_PLAY='<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
   var ICON_PAUSE='<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
-  var playing=false, raf=null, off=0, last=0;
-  function tick(ts){
-    if(!last) last=ts;
-    off=(off+(ts-last)*0.045)%1200; last=ts;
-    var gA=svg.querySelector('.wbtA'), gB=svg.querySelector('.wbtB');
-    if(gA){ gA.setAttribute('transform','translate('+(-off)+' 0)'); gB.setAttribute('transform','translate('+(1200-off)+' 0)'); }
-    raf=requestAnimationFrame(tick);
-  }
+  var playing=false;
   /* audio engine — dub-flavoured minimal: soft kick, offbeat hats, deep bass, echoed stab, slow pad */
   var AC=null, master, dly, nb, padGain, timer=null, step=0, nextT=0;
   var BPM=118, S16=(60/BPM)/4;
@@ -646,11 +643,11 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
       padGain.gain.setTargetAtTime(0.05,AC.currentTime,1.2);
     });
     playing=true; btn.classList.add('on'); btn.innerHTML=ICON_PAUSE; btn.setAttribute('aria-label','Pause');
-    last=0; raf=requestAnimationFrame(tick);
+    band.classList.add('playing');
   }
   function stop(){
     playing=false; btn.classList.remove('on'); btn.innerHTML=ICON_PLAY; btn.setAttribute('aria-label','Play the ambient set');
-    if(raf){ cancelAnimationFrame(raf); raf=null; }
+    band.classList.remove('playing');
     if(AC){ master.gain.setTargetAtTime(0.0001,AC.currentTime,0.22);
       setTimeout(function(){ if(!playing && AC) AC.suspend(); },700); }
   }
