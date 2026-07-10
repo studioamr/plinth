@@ -174,7 +174,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
                   ...(o.shots || []).map(s => [s[0], s[1], s[2] || false]) ];
   if (shots.length === 0) hideReal();
   document.getElementById('pv-gal').innerHTML = shots.map(s =>
-    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close12" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
+    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close13" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
   ).join('');
   document.querySelectorAll('#pv-gal img').forEach(img => {
     img.onerror = () => { img.closest('figure').remove(); if (!document.querySelector('#pv-gal figure')) hideReal(); };
