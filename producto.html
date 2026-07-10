@@ -150,7 +150,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     ingot: { num:'PLINTH 10', nombre:'INGOT', precio:'$120,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
       sub:'A stainless-steel block with a full-range driver on its face and twin glossy white ceramic horns rising from the top. Raw industry, tuned like a watch.',
       bp:'plinth-bp-ingot.svg', hero:'plinth-foto-ingot.png',
-      shots:[['plinth-cu-ingot-1.png','Detail — the ceramic bell'],['plinth-cu-ingot-2.png','Detail — two horns, crossing'],['plinth-cu-ingot-3.png','Detail — the driver in the block'],['plinth-cu-ingot-4.png','Detail — the block edge'],['plinth-cu-ingot-5.png','Detail — ceramic meets steel'],['plinth-cu-ingot-6.png','Detail — the isolation feet'],['plinth-cu-ingot-7.png','INGOT, whole'],['plinth-cu-ingot-8.png','Delivered — the crate, opened at home']],
+      shots:[['plinth-cu-ingot-1.png','Detail — the ceramic bell'],['plinth-cu-ingot-3.png','Detail — the driver in the block'],['plinth-cu-ingot-4.png','Detail — the block edge'],['plinth-cu-ingot-5.png','Detail — ceramic meets steel'],['plinth-cu-ingot-6.png','Detail — the isolation feet'],['plinth-cu-ingot-7.png','INGOT, whole'],['plinth-cu-ingot-8.png','Delivered — the crate, opened at home']],
       ficha:[['Format','Speaker — standalone or pair'],['Body','Stainless steel block'],['Horns','Twin glossy white ceramic'],['Driver','Full-range'],['Weight','~85 kg'],['Lead time','12–16 weeks']] },
   };
 
@@ -174,7 +174,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
                   ...(o.shots || []).map(s => [s[0], s[1], s[2] || false]) ];
   if (shots.length === 0) hideReal();
   document.getElementById('pv-gal').innerHTML = shots.map(s =>
-    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close16" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
+    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close17" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
   ).join('');
   document.querySelectorAll('#pv-gal img').forEach(img => {
     img.onerror = () => { img.closest('figure').remove(); if (!document.querySelector('#pv-gal figure')) hideReal(); };
