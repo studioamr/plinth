@@ -125,7 +125,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     mirage: { num:'PLINTH 01', nombre:'MIRAGE', precio:'$290,000', edicion:'EDITION OF 5', tipo:'ALL-IN-ONE',
       sub:'Two glossy-white speaker pods raised on steel posts over a double-lobe stainless base with two large glossy-white drivers. The glossy-white deck bridging them carries a leather-lined recess — and your 4-channel deck sits inside it, removable, never part of the table. The flagship.',
       bp:'plinth-bp-mirage.svg', hero:'plinth-cu-mirage-8.png',
-      shots:[['plinth-cu-mirage-9.png','Detail — PLINTH, debossed in the leather'],['plinth-cu-mirage-3.png','Detail — a cast woofer in the base'],['plinth-cu-mirage-5.png','Detail — a tower, faceless and calm'],['plinth-foto-mirage.png','In session — your rider in place'],['plinth-cu-mirage-7.png','The set from behind — no cables'],['plinth-cu-mirage-10.png','Delivered — the crate, opened at home']],
+      shots:[['plinth-cu-mirage-9.png','Detail — PLINTH, debossed in the leather'],['plinth-cu-mirage-5.png','Detail — a tower, faceless and calm'],['plinth-foto-mirage.png','In session — your rider in place'],['plinth-cu-mirage-7.png','The set from behind — no cables']],
       ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','Burnt-orange leather tray · removable 4-channel unit'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']] },
     nova: { num:'PLINTH 02', nombre:'NOVA', precio:'$310,000', edicion:'EDITION OF 4', tipo:'ALL-IN-ONE',
       sub:'A complete vinyl station in stainless steel — a sculptural console of twin turntables and a crossfader mixer, flanked by two tall speaker towers of glossy-white drivers ringed in fine orange. The whole sound system, cast as one.',
@@ -174,7 +174,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
                   ...(o.shots || []).map(s => [s[0], s[1], s[2] || false]) ];
   if (shots.length === 0) hideReal();
   document.getElementById('pv-gal').innerHTML = shots.map(s =>
-    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close15" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
+    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close16" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
   ).join('');
   document.querySelectorAll('#pv-gal img').forEach(img => {
     img.onerror = () => { img.closest('figure').remove(); if (!document.querySelector('#pv-gal figure')) hideReal(); };
