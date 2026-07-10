@@ -107,7 +107,7 @@ a{color:inherit;text-decoration:none}
 .lookbook{padding:clamp(60px,9vw,120px) 0}
 .lookbook .sh{max-width:1300px;margin:0 auto 44px;padding:0 clamp(20px,4vw,48px)}
 .lookstrip{overflow:hidden;border-top:1px solid rgba(20,18,16,.14);border-bottom:1px solid rgba(20,18,16,.14);background:rgba(20,18,16,.14)}
-.looktrack{display:flex;gap:1px;width:max-content;animation:lscroll 120s linear infinite}
+.looktrack{display:flex;gap:1px;width:max-content;animation:lscroll 85s linear infinite}
 .lookstrip:hover .looktrack{animation-play-state:paused}
 @keyframes lscroll{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.looktrack{animation:none}}
@@ -123,8 +123,11 @@ a{color:inherit;text-decoration:none}
 .look:hover::after{width:100%}
 /* feature — lived-with editorial band */
 .feature{display:grid;grid-template-columns:1.08fr 1fr;align-items:stretch;max-width:1300px;margin:0 auto;border-top:1px solid rgba(20,18,16,.14)}
-.feature-img{overflow:hidden}
+.feature-img{overflow:hidden;position:relative}
 .feature-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:clamp(340px,44vw,600px);filter:saturate(.96)}
+.feature-img .fade2{position:absolute;inset:0;opacity:0;animation:livedfade 14s ease-in-out infinite}
+@keyframes livedfade{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.feature-img .fade2{animation:none;opacity:0}}
 .feature-copy{padding:clamp(44px,6vw,92px) clamp(24px,4vw,64px);display:flex;flex-direction:column;justify-content:center;gap:18px;border-left:1px solid rgba(20,18,16,.14)}
 .feature-copy h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.6vw,62px);line-height:1.03;margin:0}
 .feature-copy p{color:var(--mut);line-height:1.6;margin:0;max-width:44ch}
@@ -260,7 +263,6 @@ body.pilock{overflow:hidden}
   </div>
   <div class="grid">
     <a class="card" href="producto.html?p=mirage&v=ink2"><span class="num">MIRAGE — ALL-IN-ONE</span><div class="ph"><img src="plinth-bp-mirage.svg?v=ink2" alt="MIRAGE"></div><h3>MIRAGE</h3><div class="row"><span>Brushed steel · ed. 5</span><b>$290,000</b></div></a>
-    <a class="card" href="producto.html?p=nova&v=ink2"><span class="num">NOVA — ALL-IN-ONE</span><div class="ph"><img src="plinth-bp-nova.svg?v=ink2" alt="NOVA"></div><h3>NOVA</h3><div class="row"><span>Brushed steel · ed. 4</span><b>$310,000</b></div></a>
   </div>
 </section>
 
@@ -304,63 +306,45 @@ body.pilock{overflow:hidden}
   </div>
   <div class="lookstrip"><div class="looktrack" id="looktrack">
     <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-1.png?v=look11" alt="MIRAGE on a rooftop terrace with friends">
+      <img src="plinth-look-1.png?v=look12" alt="MIRAGE on a rooftop terrace with friends">
       <span class="lk-num">Look 01 — The terrace</span>
       <span class="lk-name">MIRAGE</span>
       <span class="lk-cta">See the piece →</span>
     </a>
-    <a class="look" href="producto.html?p=nova&v=ink2">
-      <img src="plinth-look-2.png?v=look11" alt="NOVA against a concrete wall with fire">
-      <span class="lk-num">Look 02 — The supper club</span>
-      <span class="lk-name">NOVA</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
     <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-3.png?v=look11" alt="INGOT at the garden window">
-      <span class="lk-num">Look 03 — The garden window</span>
+      <img src="plinth-look-3.png?v=look12" alt="INGOT at the garden window">
+      <span class="lk-num">Look 02 — The garden window</span>
       <span class="lk-name">INGOT</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-4.png?v=look11" alt="ARCO facing the lake">
-      <span class="lk-num">Look 04 — The lake house</span>
+      <img src="plinth-look-4.png?v=look12" alt="ARCO facing the lake">
+      <span class="lk-num">Look 03 — The lake house</span>
       <span class="lk-name">ARCO</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=geode&v=ink2">
-      <img src="plinth-look-5.png?v=look11" alt="GEODE in a desert house">
-      <span class="lk-num">Look 05 — The desert house</span>
+      <img src="plinth-look-5.png?v=look12" alt="GEODE in a desert house">
+      <span class="lk-num">Look 04 — The desert house</span>
       <span class="lk-name">GEODE</span>
       <span class="lk-cta">See the piece →</span>
     </a>
-    <a class="look" href="producto.html?p=nova&v=ink2">
-      <img src="plinth-look-6.png?v=look11" alt="NOVA at a house party">
-      <span class="lk-num">Look 06 — The house party</span>
-      <span class="lk-name">NOVA</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
     <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-7.png?v=look11" alt="ARCO in an interior courtyard">
-      <span class="lk-num">Look 07 — The courtyard</span>
+      <img src="plinth-look-7.png?v=look12" alt="ARCO in an interior courtyard">
+      <span class="lk-num">Look 05 — The courtyard</span>
       <span class="lk-name">ARCO</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-8.png?v=look11" alt="INGOT beside a dinner with friends">
-      <span class="lk-num">Look 08 — The long dinner</span>
+      <img src="plinth-look-8.png?v=look12" alt="INGOT beside a dinner with friends">
+      <span class="lk-num">Look 06 — The long dinner</span>
       <span class="lk-name">INGOT</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-9.png?v=look11" alt="MIRAGE facing the sea in a beach house">
-      <span class="lk-num">Look 09 — The beach house</span>
+      <img src="plinth-look-9.png?v=look12" alt="MIRAGE facing the sea in a beach house">
+      <span class="lk-num">Look 07 — The beach house</span>
       <span class="lk-name">MIRAGE</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=geode&v=ink2">
-      <img src="plinth-look-10.png?v=look11" alt="GEODE at a garden party at dusk">
-      <span class="lk-num">Look 10 — The garden party</span>
-      <span class="lk-name">GEODE</span>
       <span class="lk-cta">See the piece →</span>
     </a>
   </div></div>
@@ -368,7 +352,10 @@ body.pilock{overflow:hidden}
 </section>
 
 <section class="feature" id="lived">
-  <div class="feature-img"><img src="plinth-look-1.png?v=look11" alt="A PLINTH at home" loading="lazy"></div>
+  <div class="feature-img">
+    <img src="plinth-look-7.png?v=look12" alt="ARCO in an interior courtyard" loading="lazy">
+    <img class="fade2" src="plinth-look-9.png?v=look12" alt="MIRAGE facing the sea in a beach house" loading="lazy">
+  </div>
   <div class="feature-copy">
     <p class="hk">Lived with</p>
     <h2 class="serif">The one object in the room you'll never move.</h2>
@@ -428,7 +415,6 @@ body.pilock{overflow:hidden}
         <select name="piece">
           <option value="Undecided — advise me">Undecided — advise me</option>
           <option>MIRAGE — All-in-one · $290,000</option>
-          <option>NOVA — All-in-one · $310,000</option>
           <option>ARCO — Booth · $220,000</option>
           <option>GEODE — Speaker · $140,000</option>
           <option>CORNU — Speaker · $165,000</option>
