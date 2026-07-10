@@ -526,9 +526,13 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
   if(P.ig){ href('lnk-ig', 'https://instagram.com/'+P.ig); href('foot-ig', 'https://instagram.com/'+P.ig); }
   else { hide('lnk-ig'); hide('lnk-ig-sep'); hide('foot-ig'); }
   try {
-    var q = new URLSearchParams(location.search).get('piece');
+    var qs = new URLSearchParams(location.search);
+    var q = qs.get('piece');
     if(q){ var sel=document.querySelector('.inq select[name=piece]');
       if(sel){ for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.indexOf(q)===0){ sel.selectedIndex=i; break; } } } }
+    var fit = qs.get('fit');
+    if(fit){ var ta=document.querySelector('.inq textarea[name=msg]');
+      if(ta && !ta.value){ ta.value='Rider: '+fit; } }
   } catch(e){}
   // product-band CTAs prefill the form with their piece
   document.querySelectorAll('[data-piece]').forEach(function(a){

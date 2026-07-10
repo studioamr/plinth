@@ -64,6 +64,15 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
 .specs li{display:flex;justify-content:space-between;gap:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:14px 0;border-top:1px solid rgba(20,18,16,.14)}
 .specs li span:last-child{color:var(--mut);text-align:right}
 
+.fit{text-align:center}
+.fit-lead{color:var(--mut);max-width:54ch;margin:0 auto 36px;line-height:1.7}
+.fit-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.fit-chip{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(20,18,16,.28);background:transparent;color:var(--ink);padding:13px 22px;cursor:pointer;transition:.3s}
+.fit-chip:hover{border-color:var(--ink)}
+.fit-chip.on{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.fit-line{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:30px auto 0;display:flex;gap:12px;align-items:center;justify-content:center;max-width:680px}
+.fit-line::before,.fit-line::after{content:"";flex:none;width:26px;height:1px;background:var(--amber)}
+
 .cta{text-align:center}
 .cta .price{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 24px}
 .btn{display:inline-flex;gap:10px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:16px 30px;transition:.35s}
@@ -100,6 +109,14 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     <div class="gal" id="pv-gal"></div>
   </section>
 
+  <section class="sec fit" id="pv-fit-sec">
+    <p class="hk">Equip it</p>
+    <h2 class="serif" id="pv-fit-title">Fitted to what you play</h2>
+    <p class="fit-lead" id="pv-fit-lead"></p>
+    <div class="fit-chips" id="pv-fit-chips" role="group" aria-label="Choose your audio brand"></div>
+    <p class="fit-line" id="pv-fit-line"></p>
+  </section>
+
   <section class="sec specs">
     <p class="hk">Spec</p>
     <h2 class="serif">Made to order</h2>
@@ -126,7 +143,9 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       sub:'Two glossy-white speaker pods raised on steel posts over a double-lobe stainless base with two large glossy-white drivers. The glossy-white deck bridging them carries a leather-lined recess — and your 4-channel deck sits inside it, removable, never part of the table. The flagship.',
       bp:'plinth-bp-mirage.svg', hero:'plinth-cu-mirage-8.png',
       shots:[['plinth-cu-mirage-9.png','Detail — PLINTH, debossed in the leather'],['plinth-cu-mirage-5.png','Detail — a tower, faceless and calm'],['plinth-foto-mirage.png','In session — your rider in place'],['plinth-cu-mirage-7.png','The set from behind — no cables']],
-      ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','Burnt-orange leather tray · removable 4-channel unit'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']] },
+      ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','Burnt-orange leather tray · removable 4-channel unit'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']],
+      fitLabel:'Fitted for', fitLead:'Every MIRAGE ships bare — the leather recess is cut to your rider before the pour. Tell us what you play; it lands fitted, flush, no adapters.',
+      fits:[['Pioneer DJ','Recess cut for a Pioneer DJ four-channel — flush to the leather, cabling hidden in the base'],['Denon DJ','Recess cut for a Denon DJ Prime flagship — flush fit, powered from the base'],['RANE','Recess cut for a RANE four-channel — seated flush, zero play'],['Traktor','Recess cut for a Traktor Kontrol flagship — flush fit, hidden cabling']] },
     nova: { num:'PLINTH 02', nombre:'NOVA', precio:'$310,000', edicion:'EDITION OF 4', tipo:'ALL-IN-ONE',
       sub:'A complete vinyl station in stainless steel — a sculptural console of twin turntables and a crossfader mixer, flanked by two tall speaker towers of glossy-white drivers ringed in fine orange. The whole sound system, cast as one.',
       bp:'plinth-bp-nova.svg', hero:'plinth-foto-nova.png',
@@ -136,12 +155,16 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       sub:'A single sweep of stainless steel, arched like a bridge, an orange-leather bay recessed flush into its crown for the gear. Molten metal frozen mid-pour.',
       bp:'plinth-bp-arco.svg', hero:'plinth-foto-arco-logo.png',
       shots:[['plinth-cu-arco-8.png','The tray, bare — your controller drops in'],['plinth-cu-arco-9.png','Detail — PLINTH, debossed in the leather'],['plinth-cu-arco-3.png','Detail — the arch, in profile'],['plinth-cu-arco-4.png','Detail — brushed steel, raking light'],['plinth-cu-arco-7.png','The arch from behind'],['plinth-cu-arco-10.png','Delivered — the crate, opened at home']],
-      ficha:[['Format','Booth — pair with any speakers'],['Shell','Stainless steel'],['Deck','Orange leather'],['Players','2 × Pioneer CDJ + mixer'],['Form','Cast liquid-metal arch'],['Weight','~180 kg']] },
+      ficha:[['Format','Booth — pair with any speakers'],['Shell','Stainless steel'],['Deck','Orange leather'],['Form','Cast liquid-metal arch'],['Weight','~180 kg']],
+      fitLabel:'Fitted for', fitLead:'ARCO ships bare — the leather bay is cut to your gear before the pour. Name your rider; it lands fitted, flush, no adapters.',
+      fits:[['Pioneer DJ','Bay cut for Pioneer DJ — CDJs and mixer seated flush in the leather'],['Denon DJ','Bay cut for a Denon DJ Prime rig — flush fit, cables through the arch'],['RANE','Bay cut for a RANE rig — flush in the leather, zero play'],['Traktor','Bay cut for a Traktor Kontrol flagship — flush fit, hidden cabling']] },
     geode: { num:'PLINTH 08', nombre:'GEODE', precio:'$140,000', edicion:'EDITION OF 8', tipo:'SPEAKER',
       sub:'A faceted stainless-steel dodecahedron, a glossy-white driver ringed in a fine line of orange on every face, radiating sound in all directions on a slim steel tripod. An omnidirectional monument.',
       bp:'plinth-bp-geode.svg', hero:'plinth-foto-geode.png',
       shots:[['plinth-cu-geode-1.png','Detail — one face, one driver'],['plinth-cu-geode-3.png','Detail — the tripod joint'],['plinth-cu-geode-7.png','GEODE, whole'],['plinth-cu-geode-8.png','Delivered — the crate, opened at home']],
-      ficha:[['Format','Speaker — omnidirectional'],['Body','Stainless faceted steel'],['Drivers','12 faces · glossy-white cones, fine orange ring'],['Stand','Machined steel tripod'],['Weight','~48 kg'],['Lead time','12–16 weeks']] },
+      ficha:[['Format','Speaker — omnidirectional'],['Body','Stainless faceted steel'],['Drivers','12 faces · glossy-white cones, fine orange ring'],['Stand','Machined steel tripod'],['Weight','~48 kg'],['Lead time','12–16 weeks']],
+      fitLabel:'Voiced for', fitLead:'GEODE is voiced, wired and terminated for the amplifier you already love — it sings the day the crate opens.',
+      fits:[['McIntosh','Voiced and terminated for McIntosh amplification'],['Accuphase','Voiced and terminated for Accuphase amplification'],['Naim','Voiced and terminated for Naim amplification'],['Devialet','Voiced and terminated for Devialet amplification']] },
     cornu: { num:'PLINTH 09', nombre:'CORNU', precio:'$165,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
       sub:'A matched pair of horns in solid stainless steel, each bell lined in glossy white inside — the mouth opening into the room. Sold only as a pair.',
       bp:'plinth-bp-cornu.svg', hero:'plinth-foto-cornu-v2.png',
@@ -151,7 +174,9 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       sub:'A stainless-steel block with a full-range driver on its face and twin glossy white ceramic horns rising from the top. Raw industry, tuned like a watch.',
       bp:'plinth-bp-ingot.svg', hero:'plinth-foto-ingot.png',
       shots:[['plinth-cu-ingot-1.png','Detail — the ceramic bell'],['plinth-cu-ingot-3.png','Detail — the driver in the block'],['plinth-cu-ingot-4.png','Detail — the block edge'],['plinth-cu-ingot-5.png','Detail — ceramic meets steel'],['plinth-cu-ingot-6.png','Detail — the isolation feet'],['plinth-cu-ingot-7.png','INGOT, whole'],['plinth-cu-ingot-8.png','Delivered — the crate, opened at home']],
-      ficha:[['Format','Speaker — standalone or pair'],['Body','Stainless steel block'],['Horns','Twin glossy white ceramic'],['Driver','Full-range'],['Weight','~85 kg'],['Lead time','12–16 weeks']] },
+      ficha:[['Format','Speaker — standalone or pair'],['Body','Stainless steel block'],['Horns','Twin glossy white ceramic'],['Driver','Full-range'],['Weight','~85 kg'],['Lead time','12–16 weeks']],
+      fitLabel:'Voiced for', fitLead:'INGOT is voiced, wired and terminated for the amplifier you already love — it sings the day the crate opens.',
+      fits:[['McIntosh','Voiced and terminated for McIntosh amplification'],['Accuphase','Voiced and terminated for Accuphase amplification'],['Naim','Voiced and terminated for Naim amplification'],['Devialet','Voiced and terminated for Devialet amplification']] },
   };
 
   const clave = new URLSearchParams(location.search).get('p') || 'mirage';
@@ -174,13 +199,39 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
                   ...(o.shots || []).map(s => [s[0], s[1], s[2] || false]) ];
   if (shots.length === 0) hideReal();
   document.getElementById('pv-gal').innerHTML = shots.map(s =>
-    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close18" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
+    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close19" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
   ).join('');
   document.querySelectorAll('#pv-gal img').forEach(img => {
     img.onerror = () => { img.closest('figure').remove(); if (!document.querySelector('#pv-gal figure')) hideReal(); };
   });
 
   document.getElementById('pv-ficha').innerHTML = o.ficha.map(f => '<li><span>' + f[0] + '</span><span>' + f[1] + '</span></li>').join('');
+
+  /* Equip it — pick your audio brand; the fit follows you into the commission */
+  (function(){
+    var sec = document.getElementById('pv-fit-sec');
+    if (!o.fits || !o.fits.length) { sec.style.display = 'none'; return; }
+    document.getElementById('pv-fit-lead').textContent = o.fitLead || '';
+    var chips = document.getElementById('pv-fit-chips');
+    chips.innerHTML = o.fits.map(function(f,i){ return '<button type="button" class="fit-chip" data-i="'+i+'">'+f[0]+'</button>'; }).join('');
+    var fichaFit = document.createElement('li');
+    fichaFit.innerHTML = '<span>'+(o.fitLabel||'Fitted for')+'</span><span id="pv-ficha-fit"></span>';
+    document.getElementById('pv-ficha').appendChild(fichaFit);
+    var saved = null; try { saved = localStorage.getItem('plinth-fit-'+clave); } catch(e){}
+    var idx = 0; o.fits.forEach(function(f,i){ if (f[0]===saved) idx = i; });
+    function applyFit(i){
+      idx = i;
+      Array.prototype.forEach.call(chips.children, function(b,j){ b.classList.toggle('on', j===i); });
+      var f = o.fits[i];
+      document.getElementById('pv-fit-line').textContent = f[1];
+      document.getElementById('pv-ficha-fit').textContent = f[0] + ' — to order';
+      try { localStorage.setItem('plinth-fit-'+clave, f[0]); } catch(e){}
+      document.getElementById('pv-cta-link').href =
+        'plinth.html?piece=' + encodeURIComponent(o.nombre) + '&fit=' + encodeURIComponent(f[0]) + '#commission';
+    }
+    chips.addEventListener('click', function(e){ var b = e.target.closest('.fit-chip'); if (b) applyFit(+b.dataset.i); });
+    applyFit(idx);
+  })();
   document.getElementById('pv-nav').innerHTML = Object.keys(OBJETOS).map(k =>
     '<a href="producto.html?p=' + k + V.replace('?','&') + '"' + (k === clave ? ' class="activo"' : '') + '>' + OBJETOS[k].nombre + '</a>').join('');
 
