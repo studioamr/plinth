@@ -92,22 +92,25 @@ a{color:inherit;text-decoration:none}
 /* atelier — golden-spiral contact sheet (tiles shrink 8→5→3→2→1, slow drift) */
 .at{background:var(--bone);position:relative;margin:0}
 .at figcaption{position:absolute;left:12px;bottom:10px;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone);background:rgba(20,18,16,.55);padding:5px 9px;backdrop-filter:blur(4px)}
-.atfib{display:grid;grid-template-columns:8fr 5fr;grid-template-rows:1fr 1fr;gap:2px;margin-top:44px;aspect-ratio:13/8;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.atfib{display:grid;grid-template-columns:8fr 2fr 3fr;grid-template-rows:5fr 1fr 2fr;gap:2px;margin-top:44px;aspect-ratio:13/8;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
 .atfib .at{overflow:hidden}
 .atfib .at img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92);animation:atkb 16s ease-in-out infinite alternate;will-change:transform}
-.atfib .at:nth-child(1){grid-column:1;grid-row:1/3}
-.atfib .at:nth-child(2){grid-column:2;grid-row:1}
-.atfib .at:nth-child(3){grid-column:2;grid-row:2}
+.atfib .at:nth-child(1){grid-column:1;grid-row:1/4}
+.atfib .at:nth-child(2){grid-column:2/4;grid-row:1}
+.atfib .at:nth-child(3){grid-column:2;grid-row:2/4}
+.atfib .at:nth-child(4){grid-column:3;grid-row:2/4}
 .atfib .at:nth-child(2) img{animation-duration:20s;animation-delay:-5s}
-.atfib .at:nth-child(3) img{animation-duration:18s;animation-delay:-3s;object-position:50% 100%}
+.atfib .at:nth-child(3) img{animation-duration:24s;animation-delay:-9s;object-position:55% 50%}
+.atfib .at:nth-child(4) img{animation-duration:18s;animation-delay:-3s;object-position:50% 90%}
+.atfib .at:nth-child(3) figcaption{left:8px;bottom:8px;font-size:9px;padding:4px 7px}
 @keyframes atkb{from{transform:scale(1.03) translate(0,0)}to{transform:scale(1.14) translate(-2.2%,2.2%)}}
 @media(prefers-reduced-motion:reduce){.atfib .at img{animation:none}}
 @media(max-width:720px){
-  .atfib{aspect-ratio:auto;grid-template-columns:1fr;grid-template-rows:none}
-  .atfib .at{grid-column:1 !important;grid-row:auto !important}
-  .atfib .at:nth-child(1){aspect-ratio:4/5}
-  .atfib .at:nth-child(2){aspect-ratio:16/10}
-  .atfib .at:nth-child(3){aspect-ratio:4/5}
+  .atfib{aspect-ratio:auto;grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .atfib .at{grid-column:auto !important;grid-row:auto !important;aspect-ratio:3/4}
+  .atfib .at:nth-child(1){grid-column:1/3 !important;aspect-ratio:4/5}
+  .atfib .at:nth-child(2){grid-column:1/3 !important;aspect-ratio:16/10}
+  .atfib .at:nth-child(3) figcaption{font-size:10px;left:10px;bottom:10px}
 }
 
 /* scarcity band */
@@ -456,7 +459,8 @@ body.pilock{overflow:hidden}
   <div class="atfib">
     <figure class="at"><img src="plinth-taller-2.png?v=at2" alt="Polishing the steel by hand" loading="lazy"><figcaption>01 — The polish</figcaption></figure>
     <figure class="at"><img src="plinth-taller-4.png?v=at2" alt="Drivers waiting on the bench" loading="lazy"><figcaption>02 — The voice</figcaption></figure>
-    <figure class="at"><img src="plinth-taller-6.png?v=at3" alt="Pouring the steel into the mold" loading="lazy"><figcaption>03 — The pour</figcaption></figure>
+    <figure class="at"><img src="plinth-taller-7.png?v=at4" alt="Tuning a horn driver against the oscilloscope" loading="lazy"><figcaption>03 — The tuning</figcaption></figure>
+    <figure class="at"><img src="plinth-taller-6.png?v=at4" alt="Pouring the steel into the mold" loading="lazy"><figcaption>04 — The pour</figcaption></figure>
   </div>
 </section>
 
