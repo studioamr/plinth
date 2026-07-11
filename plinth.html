@@ -575,6 +575,8 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
   /* audio engine — dub-flavoured minimal: soft kick, offbeat hats, deep bass, echoed stab, slow pad */
   var AC=null, master, dly, nb, padGain, timer=null, step=0, nextT=0;
   var BPM=118, S16=(60/BPM)/4;
+  /* schedule far enough ahead that a backgrounded tab (timers throttled to ~1s) never starves the audio */
+  var LOOKAHEAD=2.2;
   function build(){
     AC=new (window.AudioContext||window.webkitAudioContext)();
     master=AC.createGain(); master.gain.value=0;
@@ -629,7 +631,7 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
   }
   var BASSPAT=[[0,55],[6,55],[10,41.2],[14,49]];
   function schedule(){
-    while(nextT < AC.currentTime+0.14){
+    while(nextT < AC.currentTime+LOOKAHEAD){
       var sb=step%16, bar=Math.floor(step/16);
       if(sb%4===0) kick(nextT);
       if(sb%8===4) hat(nextT,true); else if(sb%2===1) hat(nextT,false);
@@ -642,14 +644,15 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
   function start(){
     if(!AC) build();
     AC.resume().then(function(){
+      if(AC.state!=='running') return;   /* still blocked by autoplay policy — wait for a real gesture */
       nextT=AC.currentTime+0.1;
       if(timer===null) timer=setInterval(schedule,25);
       master.gain.cancelScheduledValues(AC.currentTime);
       master.gain.setTargetAtTime(0.6,AC.currentTime,0.4);
       padGain.gain.setTargetAtTime(0.05,AC.currentTime,1.2);
-    });
-    playing=true; btn.classList.add('on'); btn.innerHTML=ICON_PAUSE; btn.setAttribute('aria-label','Pause');
-    band.classList.add('playing');
+      playing=true; btn.classList.add('on'); btn.innerHTML=ICON_PAUSE; btn.setAttribute('aria-label','Pause');
+      band.classList.add('playing');
+    }).catch(function(){});
   }
   function stop(){
     playing=false; btn.classList.remove('on'); btn.innerHTML=ICON_PLAY; btn.setAttribute('aria-label','Play the ambient set');
@@ -658,6 +661,17 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
       setTimeout(function(){ if(!playing && AC) AC.suspend(); },700); }
   }
   btn.addEventListener('click', function(){ playing?stop():start(); });
+
+  /* ---- autoplay the set on open ---- */
+  function autoStart(){ if(!playing) start(); }
+  /* try immediately — succeeds for returning visitors / browsers that allow it; harmless if blocked */
+  try{ autoStart(); }catch(e){}
+  /* guaranteed: the first interaction anywhere (the same tap/scroll that dismisses the intro) kicks it off */
+  function kick(){ autoStart(); ['pointerdown','touchstart','keydown','wheel','click'].forEach(function(ev){ window.removeEventListener(ev,kick,true); }); }
+  ['pointerdown','touchstart','keydown','wheel','click'].forEach(function(ev){ window.addEventListener(ev,kick,{capture:true,passive:true}); });
+  /* never pause on tab-switch; if a browser suspends the context in the background, resume it on return */
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden && playing && AC && AC.state==='suspended') AC.resume(); });
+  window.PLINTHAudio={ start:start, stop:stop };
 })();
 function plinthInquire(e){
   e.preventDefault();
